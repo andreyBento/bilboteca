@@ -6,6 +6,11 @@ import Dashboard from './dashboard';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.changeLivroState = this.changeLivroState.bind(this);
+  }
+
   state = {
     livros: [
       { 
@@ -66,9 +71,7 @@ class App extends Component {
         <Route path="/interna" render={() => (
           <LivroDetalhe 
           livro={this.state.livros}
-          onLivroDetalhe={(value, nome) => {
-            this.changeLivroState(value, nome);
-          }}
+          onLivroDetalhe={this.changeLivroState}
           />
         )} />
 
