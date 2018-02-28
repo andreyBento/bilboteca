@@ -7,12 +7,19 @@ a{
 
 .App-header {
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
   background-color: rgb(17, 32, 168);
   height: 150px;
   padding: 20px;
   color: white;
+}
+
+.App-header .btn{
+  display: inline-block;
+  margin-top: 10px;
+  width: auto;
 }
 
 .App-header p{

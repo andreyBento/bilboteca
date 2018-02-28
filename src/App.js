@@ -1,8 +1,10 @@
 import './App.css';
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import LivroDetalhe from './livroDetalhe';
 import Dashboard from './dashboard';
+import Busca from './busca';
 
 class App extends Component {
 
@@ -62,6 +64,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Bilboteca</h1>
           <p>A biblioteca do Bilbo</p>
+          <Link to="/busca" className="btn">Buscar livros</Link>
         </header>
 
         <Route exact path="/" render={() => (
@@ -73,6 +76,10 @@ class App extends Component {
           livro={this.state.livros}
           onLivroDetalhe={this.changeLivroState}
           />
+        )} />
+
+        <Route path="/busca" render={() => (
+          <Busca livros={this.state.livros} />
         )} />
 
       </div>
