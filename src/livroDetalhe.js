@@ -26,6 +26,37 @@ class LivroDetalhe extends Component {
         return href;
     };
 
+    checkEstado = (state) => {
+        if(state === 'lendo'){
+            return (
+                <p class="livro-tag">
+                    Este livro se encontra na sua biblioteca pessoal de Leitura Atual.
+                </p>
+            );
+        }
+        if(state === 'lido'){
+            return (
+                <p class="livro-tag">
+                    Este livro se encontra na sua biblioteca pessoal de Livros Lidos.
+                </p>
+            );
+        }
+        if(state === 'desejado'){
+            return (
+                <p class="livro-tag">
+                    Este livro se encontra na sua biblioteca pessoal de Livros Desejados.
+                </p>
+            );
+        }
+        if(state === 'none'){
+            return (
+                <p class="livro-tag">
+                    Este livro não se encontra na sua biblioteca pessoal.
+                </p>
+            );
+        }
+    }
+
     render() {
         return (
             <div className="livro-detalhe">
@@ -34,9 +65,11 @@ class LivroDetalhe extends Component {
                     <figure className="flexbox justify-center align-center" key={livro.nome}>
                         <img src={livro.imgUrl} alt={livro.title} />
                         <figcaption>
+                            <h2 className="livro-title">{livro.title}</h2>
                             <p>
                                 {livro.desc}
                             </p>
+                            {this.checkEstado(livro.estado)}
                             <Buttons livroAtual={livro} onAction={this.onChangeState} />
                         </figcaption>
                     </figure>

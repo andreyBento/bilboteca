@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import './index.css';
-import App from './App';
+import Bilboteca from './Bilboteca';
 import registerServiceWorker from './registerServiceWorker';
+import './estiloBilboteca.css';
 
 ReactDOM.render(
-    <BrowserRouter><App /></BrowserRouter>, 
+    <BrowserRouter><Bilboteca /></BrowserRouter>, 
     document.getElementById('root')
 );
 registerServiceWorker();
