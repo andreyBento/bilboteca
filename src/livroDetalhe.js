@@ -16,8 +16,7 @@ class LivroDetalhe extends Component {
 
     onChangeState(value, livro) {
         this.setState((state) => state.alertOpen = true);
-        console.log(this.alertOpen);
-        return this.props.onLivroDetalhe(value, livro.nome)
+        this.props.onLivroDetalhe(value, livro.nome);
     }
 
     nomeUrl() {
