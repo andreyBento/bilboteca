@@ -42,6 +42,55 @@ class App extends Component {
         'imgUrl': 'img/O-Senhor-dos-Aneis-o-Retorno-do-Rei-Volume-3-J-R-R-Tolkien-52453.jpg',
         'desc': 'Alterar a descrição',
         'estado': 'desejado'
+      },
+      { 
+        'title': 'Harry Potter e a Pedra Filosofal',
+        'nome': 'harry-potter-pedra-filosofal',
+        'imgUrl': 'img/harry-potter-pedra-filosofal.jpg',
+        'desc': 'Alterar a descrição',
+        'estado': 'none'
+      },
+      { 
+        'title': 'Harry Potter e a Câmara Secreta',
+        'nome': 'harry-potter-camara-secreta',
+        'imgUrl': 'img/harry-potter-camara-secreta.jpg',
+        'desc': 'Alterar a descrição',
+        'estado': 'none'
+      },
+      { 
+        'title': 'Harry Potter e o Prisioneiro de Azkaban',
+        'nome': 'harry-potter-prisioneiro-de-azkaban',
+        'imgUrl': 'img/harry-potter-prisioneiro-de-azkaban.jpg',
+        'desc': 'Alterar a descrição',
+        'estado': 'none'
+      },
+      { 
+        'title': 'Harry Potter e o Calice de Fogo',
+        'nome': 'harry-potter-calice-de-fogo',
+        'imgUrl': 'img/harry-potter-calice-de-fogo.jpg',
+        'desc': 'Alterar a descrição',
+        'estado': 'none'
+      },
+      { 
+        'title': 'Harry Potter e a Ordem da Fênix',
+        'nome': 'harry-potter-ordem-da-fenix',
+        'imgUrl': 'img/harry-potter-ordem-da-fenix.jpg',
+        'desc': 'Alterar a descrição',
+        'estado': 'none'
+      },
+      { 
+        'title': 'Harry Potter e o Enigma do Principe',
+        'nome': 'harry-potter-enigma-do-principe',
+        'imgUrl': 'img/harry-potter-enigma-do-principe.jpg',
+        'desc': 'Alterar a descrição',
+        'estado': 'none'
+      },
+      { 
+        'title': 'Harry Potter e as Reliquias da morte',
+        'nome': 'harry-potter-reliquias-da-morte',
+        'imgUrl': 'img/harry-potter-reliquias-da-morte.jpg',
+        'desc': 'Alterar a descrição',
+        'estado': 'none'
       }
     ]
   };

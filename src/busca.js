@@ -15,7 +15,7 @@ class Busca extends Component {
     }
 
     handleChange = (value) => {
-        this.setState({ value: value.trim() });
+        this.setState({ value: value });
     }
 
     handleSubmit(event){
@@ -34,14 +34,11 @@ class Busca extends Component {
         showingBooks.sort(sortBy('title'));
 
         return(
-            <div className="busca">
+            <div className="container busca">
                 <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Busca:
-                        <input type="text" value={this.state.value} onChange={(event) => this.handleChange(event.target.value)} />
-                    </label>
+                    <input type="text" className="form-control" placeholder="Digite aqui a sua busca" value={this.state.value} onChange={(event) => this.handleChange(event.target.value)} />
                 </form>
-                <div className="resultado">
+                <div className="resultado flexbox flex-wrap align-center justify-center">
                     {showingBooks.map((book) => {
                         return (
                             <Link className="livro" to={{
@@ -54,6 +51,7 @@ class Busca extends Component {
                         )
                     })}
                 </div>
+                <Link to="/" className="link-voltar">Voltar</Link>
             </div>
         )
     };
