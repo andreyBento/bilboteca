@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import LivroDetalhe from './livroDetalhe';
 import Dashboard from './dashboard';
 import Busca from './busca';
+import { getAll } from './BooksAPI';
 
 class Bilboteca extends Component {
 
@@ -13,7 +14,7 @@ class Bilboteca extends Component {
   }
 
   state = {
-    livros: [
+    /*livros: [
       { 
         'title': 'Senhor dos Anéis: As duas torres',
         'nome': 'senhor-dos-aneis-as-duas-torres',
@@ -91,7 +92,8 @@ class Bilboteca extends Component {
         'desc': 'Harry Potter e as relíquias da morte, de J.K. Rowling, é o sétimo e último livro da série. Voldemorte está cada vez mais forte e Harry Potter precisa encontrar e aniquilar as Horcruxes para enfraquecer o lorde e poder enfrentá-lo. Nessa busca desenfreada, contando apenas com os amigos Rony e Hermione, Harry descobre as Relíquias da Morte, que serão úteis na batalha do bem contra o mal.',
         'estado': 'none'
       }
-    ]
+    ],*/
+    livros: []
   };
 
   changeLivroState = function(value, nome){
@@ -104,6 +106,13 @@ class Bilboteca extends Component {
         }
       });
     })
+  }
+
+  componentDidMount(){
+    getAll().then((result) => {
+      this.setState((state) => state.livros = result);
+      console.log(this.state.livros);
+    });
   }
 
   render() {

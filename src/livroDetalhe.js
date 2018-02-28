@@ -27,21 +27,21 @@ class LivroDetalhe extends Component {
     };
 
     checkEstado = (state) => {
-        if(state === 'lendo'){
+        if(state === 'currentlyReading'){
             return (
                 <p class="livro-tag">
                     Este livro se encontra na sua biblioteca pessoal de Leitura Atual.
                 </p>
             );
         }
-        if(state === 'lido'){
+        if(state === 'read'){
             return (
                 <p class="livro-tag">
                     Este livro se encontra na sua biblioteca pessoal de Livros Lidos.
                 </p>
             );
         }
-        if(state === 'desejado'){
+        if(state === 'wantToRead'){
             return (
                 <p class="livro-tag">
                     Este livro se encontra na sua biblioteca pessoal de Livros Desejados.
@@ -61,15 +61,15 @@ class LivroDetalhe extends Component {
         return (
             <div className="livro-detalhe">
                 <Alert isDisplayed={this.state.alertOpen} />
-                {this.props.livro.filter(livro => livro.nome === this.nomeUrl()).map((livro, index) => (
+                {this.props.livro.filter(livro => livro.id === this.nomeUrl()).map((livro, index) => (
                     <figure className="flexbox justify-center align-center" key={livro.nome}>
-                        <img src={livro.imgUrl} alt={livro.title} />
+                        <img src={livro.imageLinks.thumbnail} alt={livro.title} />
                         <figcaption>
                             <h2 className="livro-title">{livro.title}</h2>
                             <p>
-                                {livro.desc}
+                                {livro.description}
                             </p>
-                            {this.checkEstado(livro.estado)}
+                            {this.checkEstado(livro.shelf)}
                             <Buttons livroAtual={livro} onAction={this.onChangeState} />
                         </figcaption>
                     </figure>

@@ -7,14 +7,14 @@ class LeituraAtual extends Component {
           <div className="leitura-atual">
             <h2 className="lista-titulo">Lista de livros atualmente lendo</h2>
             <div className="flexbox flex-wrap align-center">
-              {this.props.livros.filter(livro => livro.estado === 'lendo').map((book) => {
+              {this.props.livros.filter(livro => livro.shelf === 'currentlyReading').map((book) => {
                 return (
                   <Link className="livro" to={{
                     pathname: '/interna',
-                    hash: `#${book.nome}`
-                  }} key={book.nome}>
-                    <img src={book.imgUrl} alt={book.title} />
-                    <p>{book.title}</p>
+                    hash: `#${book.id}`
+                  }} key={book.id}>
+                    <img src={book.imageLinks.smallThumbnail} alt={book.title} />
+                    <p>{book.title} <br/> {book.subtitle}</p>
                   </Link>
                 )
               })}

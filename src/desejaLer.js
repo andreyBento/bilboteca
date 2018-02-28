@@ -7,14 +7,14 @@ class DesejaLer extends Component {
           <div className="deseja-ler">
             <h2 className="lista-titulo">Lista de desejos</h2>
             <div className="flexbox flex-wrap align-center">
-              {this.props.livros.filter(livro => livro.estado === 'desejado').map((book, index) => {
+              {this.props.livros.filter(livro => livro.shelf === 'wantToRead').map((book, index) => {
                 return (
                   <Link className="livro" to={{
                     pathname: '/interna',
-                    hash: `#${book.nome}`
-                  }} key={book.nome}>
-                    <img src={book.imgUrl} alt={book.title} />
-                    <p key={index}>{book.title}</p>
+                    hash: `#${book.id}`
+                  }} key={book.id}>
+                    <img src={book.imageLinks.smallThumbnail} alt={book.title} />
+                    <p>{book.title} <br/> {book.subtitle}</p>
                   </Link>
                 )
               })}
