@@ -37,7 +37,7 @@ class Busca extends Component {
         return(
             <div className="container busca">
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" className="form-control" placeholder="Digite aqui a sua busca" value={this.state.value} onChange={(event) => this.handleChange(event.target.value)} />
+                    <input type="text" className="form-control" placeholder="Digite aqui o nome do livro que busca" value={this.state.value} onChange={(event) => this.handleChange(event.target.value)} />
                 </form>
                 <div className="resultado flexbox flex-wrap align-center justify-center">
                     <Resultado showingBooks={this.showingBooks} inputValue={this.state.value} />

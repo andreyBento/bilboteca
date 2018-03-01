@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Buttons from './buttons';
-import Alert from './alert';
 
 class LivroDetalhe extends Component {
 
@@ -10,13 +9,8 @@ class LivroDetalhe extends Component {
         this.onChangeState = this.onChangeState.bind(this);
     }
 
-    state = {
-        alertOpen: false
-    }
-
     onChangeState(value, livro) {
-        this.setState((state) => state.alertOpen = true);
-        this.props.onLivroDetalhe(value, livro.nome);
+        this.props.onLivroDetalhe(value, livro.id);
     }
 
     nomeUrl() {
@@ -29,28 +23,28 @@ class LivroDetalhe extends Component {
     checkEstado = (state) => {
         if(state === 'currentlyReading'){
             return (
-                <p class="livro-tag">
+                <p className="livro-tag">
                     Este livro se encontra na sua biblioteca pessoal de Leitura Atual.
                 </p>
             );
         }
         if(state === 'read'){
             return (
-                <p class="livro-tag">
+                <p className="livro-tag">
                     Este livro se encontra na sua biblioteca pessoal de Livros Lidos.
                 </p>
             );
         }
         if(state === 'wantToRead'){
             return (
-                <p class="livro-tag">
+                <p className="livro-tag">
                     Este livro se encontra na sua biblioteca pessoal de Livros Desejados.
                 </p>
             );
         }
         if(state === 'none'){
             return (
-                <p class="livro-tag">
+                <p className="livro-tag">
                     Este livro não se encontra na sua biblioteca pessoal.
                 </p>
             );
@@ -60,9 +54,8 @@ class LivroDetalhe extends Component {
     render() {
         return (
             <div className="livro-detalhe">
-                <Alert isDisplayed={this.state.alertOpen} />
                 {this.props.livro.filter(livro => livro.id === this.nomeUrl()).map((livro, index) => (
-                    <figure className="flexbox justify-center align-center" key={livro.nome}>
+                    <figure className="flexbox justify-center align-center" key={livro.id}>
                         <img src={livro.imageLinks.thumbnail} alt={livro.title} />
                         <figcaption>
                             <h2 className="livro-title">{livro.title}</h2>

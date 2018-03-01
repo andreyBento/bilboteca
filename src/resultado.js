@@ -10,9 +10,9 @@ class Resultado extends Component {
                 return (
                     <Link className="livro" to={{
                       pathname: '/interna',
-                      hash: `#${book.nome}`
-                    }} key={book.nome}>
-                      <img src={book.imgUrl} alt={book.title} />
+                      hash: `#${book.id}`
+                    }} key={book.id}>
+                      <img src={book.imageLinks.smallThumbnail} alt={book.title} />
                       <p>{book.title}</p>
                     </Link>
                 )

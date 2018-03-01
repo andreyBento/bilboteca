@@ -5,6 +5,8 @@ import LivroDetalhe from './livroDetalhe';
 import Dashboard from './dashboard';
 import Busca from './busca';
 import { getAll } from './BooksAPI';
+import { get } from './BooksAPI';
+import { update } from './BooksAPI';
 
 class Bilboteca extends Component {
 
@@ -96,16 +98,23 @@ class Bilboteca extends Component {
     livros: []
   };
 
-  changeLivroState = function(value, nome){
-    this.setState(state => {
-      state.livros.map((livro) => {
-        if(livro.nome === nome){
-          return livro.estado = value;
-        } else {
-          return false;
-        }
+  changeLivroState = function(value, id, history){
+
+    get(id).then((result) => {
+      this.setState((state) => {
+        state.livros.map((livro) => {
+          if(livro.id === id){
+            return livro.shelf = value;
+          } else {
+            return false;
+          }
+        });
       });
-    })
+      result.shelf = value;
+      history.push('/');
+      return update(result, result.shelf);
+    });
+
   }
 
   componentDidMount(){
@@ -128,10 +137,12 @@ class Bilboteca extends Component {
           <Dashboard livros={this.state.livros} />
         )} />
 
-        <Route path="/interna" render={() => (
+        <Route path="/interna" render={({ history }) => (
           <LivroDetalhe 
           livro={this.state.livros}
-          onLivroDetalhe={this.changeLivroState}
+          onLivroDetalhe={(value, id) => {
+            this.changeLivroState(value, id, history);
+          }}
           />
         )} />
 
