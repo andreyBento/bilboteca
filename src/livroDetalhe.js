@@ -51,12 +51,20 @@ class LivroDetalhe extends Component {
         }
     }
 
+    checkImage(livro){
+        if(livro.imageLinks !== undefined){
+            return <img src={livro.imageLinks.thumbnail} alt={livro.title} />
+        } else {
+            return null
+        }
+    }
+
     render() {
         return (
             <div className="livro-detalhe">
                 {this.props.livro.filter(livro => livro.id === this.nomeUrl()).map((livro, index) => (
                     <figure className="flexbox justify-center align-center" key={livro.id}>
-                        <img src={livro.imageLinks.thumbnail} alt={livro.title} />
+                        {this.checkImage(livro)}
                         <figcaption>
                             <h2 className="livro-title">{livro.title}</h2>
                             <p>
